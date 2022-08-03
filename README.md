@@ -20,3 +20,13 @@
 ```bash
 ./addBilling.sh 010000-A111AA-22BB22 gcp-project-1 gcp-project-2 gcp-project-3 >> billing-facturation.txt;
 ```
+
+## 3. get_iam_permissions.sh
+
+- Change billing to each project: `./addBilling.sh` `[BILLING_ID]` `[PROJECT-ID-01 PROJECT_ID-02...]`
+```bash
+./get_iam_permissions.sh;
+ls organizations;
+ls projects;
+ls folders;
+```
