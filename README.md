@@ -4,7 +4,7 @@
 | **Note**: With admin Org. or owner project. 
 
 - Permissions to Projects:
-- Change billing to each project: `./addPolicyToBilling.sh` `[USER_BILLING]` `[PROJECT-ID-01 PROJECT_ID-02...]`
+- Change billing to each project: `./addPolicyToBilling.sh [USER_BILLING] [PROJECT-ID-01 PROJECT_ID-02...]`
 ```bash
 ./addPolicyToBilling.sh my-billing-adminuser@mail.com gcp-project-1 gcp-project-2 gcp-project-3 >> billing-permissions.txt;
 ```
@@ -16,17 +16,27 @@
 ## 2. addBilling.sh
 | **Note**: "my-billing-adminuser@mail.com"
 
-- Change billing to each project: `./addBilling.sh` `[BILLING_ID]` `[PROJECT-ID-01 PROJECT_ID-02...]`
+- Change billing to each project: `./addBilling.sh [BILLING_ID] [PROJECT-ID-01 PROJECT_ID-02...]`
 ```bash
 ./addBilling.sh 010000-A111AA-22BB22 gcp-project-1 gcp-project-2 gcp-project-3 >> billing-facturation.txt;
 ```
 
 ## 3. get_iam_permissions.sh
 
-- Change billing to each project: `./addBilling.sh` `[BILLING_ID]` `[PROJECT-ID-01 PROJECT_ID-02...]`
+- create folders with permissions
 ```bash
 ./get_iam_permissions.sh;
 ls organizations;
 ls projects;
 ls folders;
+```
+
+## 4. self-projects.sh
+
+- get all user project and roles (csv): `./self-projects.sh [USER_EMAIL] [NUM_LIMIT_PROJECTS]`
+```bash
+./self-projects.sh;
+
+# optional
+./self-projects.sh "name@domain.com" "20";
 ```
