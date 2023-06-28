@@ -19,15 +19,16 @@ function getOrgFold() {
 
   if [[ "${parentData}" == "" ]];then
     if [[ "${parentType}" == "folder" ]];then
-        parentData=`gcloud resource-manager folders describe "${parentId}" --format="value(displayName,parent)"`;
+        parentData=`gcloud resource-manager folders describe "${parentId}" --format="value(displayName,parent)" || echo "NONE"`;
     elif [[ "${parentType}" == "organization" ]];then
-        parentData=`gcloud organizations describe "${parentId}" --format="value(displayName,owner.directoryCustomerId)"`;
+        parentData=`gcloud organizations describe "${parentId}" --format="value(displayName,owner.directoryCustomerId)" || echo "NONE"`;
     else
         parentData="NO_PARENT_DATA";
     fi;
     local len="${#orgsfolds[@]}";
-    orgsfolds[len]="${parentId}:(${parentData})";
-    echo "${parentId}:(${parentData})";
+    local parent_getter="${parentId}:(${parentData})";
+    orgsfolds[len]="${parent_getter}";
+    echo "${parent_getter}";
   else
     echo "${parentData}";
   fi;
