@@ -1,3 +1,9 @@
+#/bin/bash
+
+echo "Este script CAMBIARÁ EL BILLING a proyectos GCP
+Presione cualquier tecla para continuar...";
+read -n 1 -s -r -p "";
+
 BILLING_ACCOUNT="${1}";
 PROJECTS_ID="${@}";
 

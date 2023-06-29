@@ -1,4 +1,8 @@
-#!/bin/bash
+#/bin/bash
+
+echo "Este script (ALFA) TRAERÁ PERMISOS en ORG FOLD y PROY a proyectos GCP
+Presione cualquier tecla para continuar...";
+
 mkdir -p organizations projects folders;
 
 # get recursive folders 

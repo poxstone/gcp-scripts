@@ -1,4 +1,8 @@
-#!/bin/bash
+#/bin/bash
+
+echo "Este script AÑADIRÁ PERMISO DE BILLING a un usuario en proyectos GCP
+Presione cualquier tecla para continuar...";
+
 GCP_PERMISSIONS=("roles/browser", "roles/billing.projectManager");
 GCP_PERMISSIONS_ORG=("roles/resourcemanager.organizationViewer", "roles/browser", "roles/billing.projectManager");
 USER_BILLING="${1}";

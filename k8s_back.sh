@@ -1,4 +1,7 @@
-#!/bin/bash
+#/bin/bash
+
+echo "Este script HARÁ BACKUP K8S
+Presione cualquier tecla para continuar...";
 
 # Define variables
 OUTPUT_DIR="./backup";

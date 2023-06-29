@@ -1,4 +1,7 @@
-#!/usr/bin/bash
+#/bin/bash
+
+echo "Este script CREARÁ PROYECTO Y PERMISO EN la ORG a proyectos GCP
+Presione cualquier tecla para continuar...";
 
 # gsutil cp gs://billing-management-xertica/billing-management.sh ./ && source ./billing-management.sh;
 param_1=`echo "${1}" | awk '{gsub("[ ]","",$0);print tolower($0)}'`;
