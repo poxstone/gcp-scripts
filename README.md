@@ -37,6 +37,21 @@ ls folders;
 ```bash
 ./self-projects.sh;
 
+- Lo anterior demorará entre 5min y 1hora dependiendo la cantidad de proyectos a los que se tenga accesos.
+- Al finalizar dejará un archivo "**projects_roles_[USER_EMAIL].csv**" para descargar y posteriormente analizar.
+- La información de dicho archivo contiene las siguientes columnas:
+  - **project_id**: 
+  - **project_name**: 
+  - **project_number**: 
+  - **parent_id**: 
+  - **parent_type**: 
+  - **project_create_time**: 
+  - **project_lifecycle_state**: 
+  - **my_project_roles**: 
+  - **parent_data_info**: 
+  - **project_billing_info**: 
+  - **project_all_roles**: 
+
 # optional
 ./self-projects.sh "name@domain.com" "20";
 ```

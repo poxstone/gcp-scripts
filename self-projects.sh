@@ -43,7 +43,8 @@ function getProjects {
   gcloud projects list --format "csv(projectId,name,projectNumber,parent.id,parent.type,createTime,lifecycleState)" --limit ${LIMIT} | while IFS= read -r lines; do
     local projectId=$(echo ${lines} | awk -F',' '{print($1)}');
     if [[ ${projectId} == "project_id" ]];then
-      echo "${lines},roles,parentData,billing,all-roles" > "${FILE_OUT}";
+      local header=`echo $lines | awk -F ',' '{gsub(/,name,/, ",project_name,");gsub(/,type,/, ",parent_type,");gsub(/,id,/, ",parent_id,");gsub(/,create_time,/, ",project_create_time,");gsub(/,lifecycle_state,/, ",project_lifecycle_state,"); print}'`;
+      echo "${header},my_project_roles,parent_data_info,project_billing_info,project_all_roles" > "${FILE_OUT}";
       continue;
     else
       local parentId=$(echo ${lines} | awk -F',' '{print($4)}');
@@ -55,7 +56,6 @@ function getProjects {
       [[ -z "${roles}" ]] && roles="FROM_ANY_PARENT" || roles="${roles}";
 
       echo "${lines},${roles//,/|},${parentData//,/|},${billingData//,/|},${allRolles//,/|}" >> "${FILE_OUT}";
-
     fi;
   done;
   echo "CSV exported in ${FILE_OUT}";
